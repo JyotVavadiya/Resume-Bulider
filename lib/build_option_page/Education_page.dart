@@ -65,33 +65,61 @@ class _educationState extends State<education> {
           ),
           Expanded(
             flex: 9,
-            child: Column(
-              children: [
-                SizedBox(height: 25),
-                Stack(
-                  children: [
-                    Container(
-                      height: 520,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                      ),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(top: 25, right: 155),
-                              child: Text("Course/Degree", style: _titlestyle),
-                            ),
-                            Container(
-                              padding:
-                              EdgeInsets.only(top: 10, left: 20, right: 20),
-                              child: Form(
-                                key: _educationFormkey,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: 25),
+                  Stack(
+                    children: [
+                      Container(
+                        height: 520,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.only(top: 25, right: 155),
+                                child: Text("Course/Degree", style: _titlestyle),
+                              ),
+                              Container(
+                                padding:
+                                EdgeInsets.only(top: 10, left: 20, right: 20),
+                                child: Form(
+                                  key: _educationFormkey,
+                                  child: TextFormField(
+                                    controller: _degreeController,
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return 'Enter your degree';
+                                      }
+                                      return null;
+                                    },
+                                    onSaved: (val) {
+                                      degree = val;
+                                    },
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      hintText: 'B. Tech Information Technology',
+                                      hintStyle: _hinttext,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(top: 25, right: 60),
+                                child: Text("School/Collage/Institute",
+                                    style: _titlestyle),
+                              ),
+                              Container(
+                                padding:
+                                EdgeInsets.only(top: 10, left: 20, right: 20),
                                 child: TextFormField(
-                                  controller: _degreeController,
+                                  controller: _instituteController,
                                   validator: (val) {
                                     if (val!.isEmpty) {
                                       return 'Enter your degree';
@@ -99,116 +127,90 @@ class _educationState extends State<education> {
                                     return null;
                                   },
                                   onSaved: (val) {
-                                    degree = val;
+                                    institute = val;
                                   },
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(),
-                                    hintText: 'B. Tech Information Technology',
+                                    hintText: 'Bhagavan Mahavir University',
                                     hintStyle: _hinttext,
                                   ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(top: 25, right: 60),
-                              child: Text("School/Collage/Institute",
-                                  style: _titlestyle),
-                            ),
-                            Container(
-                              padding:
-                              EdgeInsets.only(top: 10, left: 20, right: 20),
-                              child: TextFormField(
-                                controller: _instituteController,
-                                validator: (val) {
-                                  if (val!.isEmpty) {
-                                    return 'Enter your degree';
-                                  }
-                                  return null;
-                                },
-                                onSaved: (val) {
-                                  institute = val;
-                                },
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  hintText: 'Bhagavan Mahavir University',
-                                  hintStyle: _hinttext,
+                              Container(
+                                padding: EdgeInsets.only(top: 25, right: 60),
+                                child: Text("School/Collage/Institute",
+                                    style: _titlestyle),
+                              ),
+                              Container(
+                                padding:
+                                EdgeInsets.only(top: 10, left: 20, right: 20),
+                                child: TextFormField(
+                                  controller: _collegeController,
+                                  validator: (val) {
+                                    if (val!.isEmpty) {
+                                      return 'Enter your degree';
+                                    }
+                                    return null;
+                                  },
+                                  onSaved: (val) {
+                                    college = val;
+                                  },
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    hintText: '70% (or) 7.0 CGPA',
+                                    hintStyle: _hinttext,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(top: 25, right: 60),
-                              child: Text("School/Collage/Institute",
-                                  style: _titlestyle),
-                            ),
-                            Container(
-                              padding:
-                              EdgeInsets.only(top: 10, left: 20, right: 20),
-                              child: TextFormField(
-                                controller: _collegeController,
-                                validator: (val) {
-                                  if (val!.isEmpty) {
-                                    return 'Enter your degree';
-                                  }
-                                  return null;
-                                },
-                                onSaved: (val) {
-                                  college = val;
-                                },
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  hintText: '70% (or) 7.0 CGPA',
-                                  hintStyle: _hinttext,
+                              Container(
+                                padding: EdgeInsets.only(top: 25, right: 180),
+                                child: Text("Year Of Pass", style: _titlestyle),
+                              ),
+                              Container(
+                                padding:
+                                EdgeInsets.only(top: 10, left: 20, right: 20),
+                                child: TextFormField(
+                                  controller: _yearController,
+                                  validator: (val) {
+                                    if (val!.isEmpty) {
+                                      return 'Enter your year of Pass';
+                                    }
+                                    return null;
+                                  },
+                                  onSaved: (val) {
+                                    year = val;
+                                  },
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    hintText: '2022',
+                                    hintStyle: _hinttext,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(top: 25, right: 180),
-                              child: Text("Year Of Pass", style: _titlestyle),
-                            ),
-                            Container(
-                              padding:
-                              EdgeInsets.only(top: 10, left: 20, right: 20),
-                              child: TextFormField(
-                                controller: _yearController,
-                                validator: (val) {
-                                  if (val!.isEmpty) {
-                                    return 'Enter your year of Pass';
-                                  }
-                                  return null;
-                                },
-                                onSaved: (val) {
-                                  year = val;
-                                },
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  hintText: '2022',
-                                  hintStyle: _hinttext,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 20, bottom: 20),
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  if(_educationFormkey.currentState!.validate()){
-                                    _educationFormkey.currentState!.save();
+                              Padding(
+                                padding: EdgeInsets.only(top: 20, bottom: 20),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    if(_educationFormkey.currentState!.validate()){
+                                      _educationFormkey.currentState!.save();
 
-                                    resume.degree = degree;
-                                    resume.college = college;
-                                    resume.year = year;
-                                  }
-                                },
-                                child: Text("Save"),
+                                      resume.degree = degree;
+                                      resume.college = college;
+                                      resume.year = year;
+                                    }
+                                  },
+                                  child: Text("Save"),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
-              ],
+                ],
+              ),
             ),
           ),
         ],

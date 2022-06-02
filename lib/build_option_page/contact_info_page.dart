@@ -144,230 +144,232 @@ class _contactinfoState extends State<contactinfo> {
                       bottom: 25,
                     ),
                     color: Colors.white,
-                    child: Form(
-                      key: _contactinfoFormKey,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Icon(Icons.account_circle, color: Colors.grey, ),
-                              ),
-                              const SizedBox(width: 15),
-                              Expanded(
-                                flex: 10,
-                                child: TextFormField(
-                                  controller: _nameController,
-                                  validator: (val) {
-                                    if (val!.isEmpty) {
-                                      return 'Enter your name';
-                                    }
-                                    return null;
-                                  },
-                                  onSaved: (val) {
-                                    name = val;
-                                  },
-                                  decoration: const InputDecoration(
-                                    label: Text("Name"),
-                                    hintText: "Enter your name",
-                                    border: UnderlineInputBorder(),
-                                  ),
+                    child: SingleChildScrollView(
+                      child: Form(
+                        key: _contactinfoFormKey,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Icon(Icons.account_circle, color: Colors.grey, ),
                                 ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Icon(Icons.email, color: Colors.grey, ),
-                              ),
-                              const SizedBox(width: 15),
-                              Expanded(
-                                flex: 10,
-                                child: TextFormField(
-                                  controller: _emailController,
-                                  validator: (val) {
-                                    if (val!.isEmpty) {
-                                      return 'Enter your Email';
-                                    }
-                                    return null;
-                                  },
-                                  onSaved: (val) {
-                                    email = val;
-                                  },
-                                  decoration: const InputDecoration(
-                                    label: Text("Email"),
-                                    hintText: "Enter your Email",
-                                    border: UnderlineInputBorder(),
+                                const SizedBox(width: 15),
+                                Expanded(
+                                  flex: 10,
+                                  child: TextFormField(
+                                    controller: _nameController,
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return 'Enter your name';
+                                      }
+                                      return null;
+                                    },
+                                    onSaved: (val) {
+                                      name = val;
+                                    },
+                                    decoration: const InputDecoration(
+                                      label: Text("Name"),
+                                      hintText: "Enter your name",
+                                      border: UnderlineInputBorder(),
+                                    ),
                                   ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Icon(Icons.email, color: Colors.grey, ),
                                 ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Icon(Icons.phone_android, color: Colors.grey,),
-                              ),
-                              const SizedBox(width: 15),
-                              Expanded(
-                                flex: 10,
-                                child: TextFormField(
-                                  controller: _phoneController,
-                                  validator: (val) {
-                                    if (val!.isEmpty) {
-                                      return 'Enter your Phone number';
-                                    } else if (val.length != 10) {
-                                      return 'Invelid length';
-                                    }
-                                    return null;
-                                  },
-                                  onSaved: (val) {
-                                    phone = int.parse(val!);
-                                  },
-                                  keyboardType: TextInputType.number,
-                                  decoration: const InputDecoration(
-                                    label: Text("Phone"),
-                                    hintText: "Enter your Phone number",
-                                    border: UnderlineInputBorder(),
+                                const SizedBox(width: 15),
+                                Expanded(
+                                  flex: 10,
+                                  child: TextFormField(
+                                    controller: _emailController,
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return 'Enter your Email';
+                                      }
+                                      return null;
+                                    },
+                                    onSaved: (val) {
+                                      email = val;
+                                    },
+                                    decoration: const InputDecoration(
+                                      label: Text("Email"),
+                                      hintText: "Enter your Email",
+                                      border: UnderlineInputBorder(),
+                                    ),
                                   ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Icon(Icons.phone_android, color: Colors.grey,),
                                 ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Icon(Icons.location_on, color: Colors.grey),
-                              ),
-                              const SizedBox(width: 15),
-                              Expanded(
-                                flex: 10,
-                                child: TextFormField(
-                                  controller: _address1Controller,
-                                  validator: (val) {
-                                    if (val!.isEmpty) {
-                                      return 'Enter your address';
-                                    }
-                                  },
-                                  onSaved: (val) {
-                                    address = val;
-                                  },
-                                  decoration: const InputDecoration(
-                                    label: Text("Address"),
-                                    hintText: "Enter your Address",
-                                    border: UnderlineInputBorder(),
+                                const SizedBox(width: 15),
+                                Expanded(
+                                  flex: 10,
+                                  child: TextFormField(
+                                    controller: _phoneController,
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return 'Enter your Phone number';
+                                      } else if (val.length != 10) {
+                                        return 'Invelid length';
+                                      }
+                                      return null;
+                                    },
+                                    onSaved: (val) {
+                                      phone = int.parse(val!);
+                                    },
+                                    keyboardType: TextInputType.number,
+                                    decoration: const InputDecoration(
+                                      label: Text("Phone"),
+                                      hintText: "Enter your Phone number",
+                                      border: UnderlineInputBorder(),
+                                    ),
                                   ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Icon(Icons.location_on, color: Colors.grey),
                                 ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Container(),
-                              ),
-                              const SizedBox(width: 15),
-                              Expanded(
-                                flex: 10,
-                                child: TextFormField(
-                                  controller: _address2Controller,
-                                  onSaved: (val) {
-                                    address = address! + ", " + val!;
-                                  },
-                                  decoration: const InputDecoration(
-                                    hintText: "Address line 2",
-                                    border: UnderlineInputBorder(),
+                                const SizedBox(width: 15),
+                                Expanded(
+                                  flex: 10,
+                                  child: TextFormField(
+                                    controller: _address1Controller,
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return 'Enter your address';
+                                      }
+                                    },
+                                    onSaved: (val) {
+                                      address = val;
+                                    },
+                                    decoration: const InputDecoration(
+                                      label: Text("Address"),
+                                      hintText: "Enter your Address",
+                                      border: UnderlineInputBorder(),
+                                    ),
                                   ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Container(),
                                 ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Container(),
-                              ),
-                              const SizedBox(width: 15),
-                              Expanded(
-                                flex: 10,
-                                child: TextFormField(
-                                  controller: _address3Controller,
-                                  onSaved: (val) {
-                                    address = address! + ", " + val!;
-                                  },
-                                  decoration: const InputDecoration(
-                                    hintText: "Address line 3",
-                                    border: UnderlineInputBorder(),
+                                const SizedBox(width: 15),
+                                Expanded(
+                                  flex: 10,
+                                  child: TextFormField(
+                                    controller: _address2Controller,
+                                    onSaved: (val) {
+                                      address = address! + ", " + val!;
+                                    },
+                                    decoration: const InputDecoration(
+                                      hintText: "Address line 2",
+                                      border: UnderlineInputBorder(),
+                                    ),
                                   ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Container(),
                                 ),
-                              )
-                            ],
-                          ),
-                          const SizedBox(height: 30),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  if (_contactinfoFormKey.currentState!
-                                      .validate()) {
-                                    _contactinfoFormKey.currentState!.save();
+                                const SizedBox(width: 15),
+                                Expanded(
+                                  flex: 10,
+                                  child: TextFormField(
+                                    controller: _address3Controller,
+                                    onSaved: (val) {
+                                      address = address! + ", " + val!;
+                                    },
+                                    decoration: const InputDecoration(
+                                      hintText: "Address line 3",
+                                      border: UnderlineInputBorder(),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            const SizedBox(height: 30),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    if (_contactinfoFormKey.currentState!
+                                        .validate()) {
+                                      _contactinfoFormKey.currentState!.save();
 
-                                    resume.name = name;
-                                    resume.email = email;
-                                    resume.phone = phone;
-                                    resume.address = address;
-                                    resume.image = _image!;
+                                      resume.name = name;
+                                      resume.email = email;
+                                      resume.phone = phone;
+                                      resume.address = address;
+                                      resume.image = _image!;
+
+                                      print(resume.name);
+                                      print(resume.email);
+                                      print(resume.phone);
+                                      print(resume.address);
+                                    }
+                                  },
+                                  child: const Text("Submit"),
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    _contactinfoFormKey.currentState!.reset();
+
+                                    _nameController.clear();
+                                    _emailController.clear();
+                                    _phoneController.clear();
+                                    _address1Controller.clear();
+                                    _address2Controller.clear();
+                                    _address3Controller.clear();
+
+                                    name = "";
+                                    email = "";
+                                    phone = 0;
+                                    address = "";
+
+                                    resume.name = "";
+                                    resume.email = "";
+                                    resume.phone = 0;
+                                    resume.address = "";
 
                                     print(resume.name);
                                     print(resume.email);
                                     print(resume.phone);
                                     print(resume.address);
-                                  }
-                                },
-                                child: const Text("Submit"),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  _contactinfoFormKey.currentState!.reset();
-
-                                  _nameController.clear();
-                                  _emailController.clear();
-                                  _phoneController.clear();
-                                  _address1Controller.clear();
-                                  _address2Controller.clear();
-                                  _address3Controller.clear();
-
-                                  name = "";
-                                  email = "";
-                                  phone = 0;
-                                  address = "";
-
-                                  resume.name = "";
-                                  resume.email = "";
-                                  resume.phone = 0;
-                                  resume.address = "";
-
-                                  print(resume.name);
-                                  print(resume.email);
-                                  print(resume.phone);
-                                  print(resume.address);
-                                },
-                                child: Text("Reset"),
-                              ),
-                            ],
-                          ),
-                        ],
+                                  },
+                                  child: Text("Reset"),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
+                    )
                   ),
                   //photo
                   Stack(

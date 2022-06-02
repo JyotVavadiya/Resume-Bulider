@@ -70,220 +70,222 @@ class _personaldetailsState extends State<personaldetails> {
           ),
           Expanded(
             flex: 9,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Stack(
-                  children: [
-                    Container(
-                      height: _height * 0.7,
-                      width: _width * 0.9,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                      ),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(right: 255, top: 30),
-                              child: Text("DOB", style: _titleStyle),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(
-                                  right: 25, left: 25, top: 10, bottom: 25),
-                              child: Form(
-                                key: _personaldetailsFormkey,
-                                child: Column(
-                                  children: [
-                                    TextFormField(
-                                      controller: _dobController,
-                                      validator: (val) {
-                                        if (val!.isEmpty) {
-                                          return 'Enter Your Date of Birth';
-                                        }
-                                        return null;
-                                      },
-                                      onSaved: (val) {
-                                        DOB = val;
-                                      },
-                                      decoration: InputDecoration(
-                                        hintText: "DD/MM/YYYY",
-                                        hintStyle: _hinttext,
-                                        border: OutlineInputBorder(),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.only(right: 160, top: 20),
-                                      child: Text("Marital Status", style: _titleStyle),
-                                    ),
-                                    Container(
-                                      //padding: EdgeInsets.only( top: 10),
-                                      child: Row(
-                                        children: [
-                                          Radio(
-                                            value: "Single",
-                                            groupValue: grpVal,
-                                            onChanged: (val) {
-                                              setState(() {
-                                                grpVal = val;
-                                              });
-                                            },
-                                          ),
-                                          const Text(
-                                            "Single",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      //padding: EdgeInsets.only(left: 10),
-                                      child: Row(
-                                        children: [
-                                          Radio(
-                                            value: "Married",
-                                            groupValue: grpVal,
-                                            onChanged: (val) {
-                                              setState(() {
-                                                grpVal = val;
-                                              });
-                                            },
-                                          ),
-                                          const Text(
-                                            "Married",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.only(right: 120, top: 10),
-                                      child:
-                                      Text("Languages Known", style: _titleStyle),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.only(left: 10, top: 10),
-                                      child: Row(
-                                        children: [
-                                          Checkbox(
-                                            value: val1,
-                                            onChanged: (val) {
-                                              setState(() {
-                                                val1 = !val1;
-                                              });
-                                            },
-                                          ),
-                                          const Text(
-                                            "English",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: Row(
-                                        children: [
-                                          Checkbox(
-                                            value: val2,
-                                            onChanged: (val) {
-                                              setState(() {
-                                                val2 = !val2;
-                                              });
-                                            },
-                                          ),
-                                          const Text(
-                                            "Hindi",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: Row(
-                                        children: [
-                                          Checkbox(
-                                            value: val3,
-                                            onChanged: (val) {
-                                              setState(() {
-                                                val3 = !val3;
-                                              });
-                                            },
-                                          ),
-                                          const Text(
-                                            "Gujarati",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.only(right: 190, top: 10),
-                                      child: Text("Nationality", style: _titleStyle),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.only(top: 10),
-                                      child: TextFormField(
-                                        controller: _nationalityController,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        height: _height * 0.7,
+                        width: _width * 0.9,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.only(right: 255, top: 30),
+                                child: Text("DOB", style: _titleStyle),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.only(
+                                    right: 25, left: 25, top: 10, bottom: 25),
+                                child: Form(
+                                  key: _personaldetailsFormkey,
+                                  child: Column(
+                                    children: [
+                                      TextFormField(
+                                        controller: _dobController,
                                         validator: (val) {
                                           if (val!.isEmpty) {
-                                            return 'Enter Your Nationality';
+                                            return 'Enter Your Date of Birth';
                                           }
                                           return null;
                                         },
                                         onSaved: (val) {
-                                          nationality = val;
+                                          DOB = val;
                                         },
                                         decoration: InputDecoration(
-                                          hintText: "india",
+                                          hintText: "DD/MM/YYYY",
                                           hintStyle: _hinttext,
                                           border: OutlineInputBorder(),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Container(
+                                        padding: EdgeInsets.only(right: 160, top: 20),
+                                        child: Text("Marital Status", style: _titleStyle),
+                                      ),
+                                      Container(
+                                        //padding: EdgeInsets.only( top: 10),
+                                        child: Row(
+                                          children: [
+                                            Radio(
+                                              value: "Single",
+                                              groupValue: grpVal,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  grpVal = val;
+                                                });
+                                              },
+                                            ),
+                                            const Text(
+                                              "Single",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        //padding: EdgeInsets.only(left: 10),
+                                        child: Row(
+                                          children: [
+                                            Radio(
+                                              value: "Married",
+                                              groupValue: grpVal,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  grpVal = val;
+                                                });
+                                              },
+                                            ),
+                                            const Text(
+                                              "Married",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(right: 120, top: 10),
+                                        child:
+                                        Text("Languages Known", style: _titleStyle),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 10, top: 10),
+                                        child: Row(
+                                          children: [
+                                            Checkbox(
+                                              value: val1,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  val1 = !val1;
+                                                });
+                                              },
+                                            ),
+                                            const Text(
+                                              "English",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 10),
+                                        child: Row(
+                                          children: [
+                                            Checkbox(
+                                              value: val2,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  val2 = !val2;
+                                                });
+                                              },
+                                            ),
+                                            const Text(
+                                              "Hindi",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 10),
+                                        child: Row(
+                                          children: [
+                                            Checkbox(
+                                              value: val3,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  val3 = !val3;
+                                                });
+                                              },
+                                            ),
+                                            const Text(
+                                              "Gujarati",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(right: 190, top: 10),
+                                        child: Text("Nationality", style: _titleStyle),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(top: 10),
+                                        child: TextFormField(
+                                          controller: _nationalityController,
+                                          validator: (val) {
+                                            if (val!.isEmpty) {
+                                              return 'Enter Your Nationality';
+                                            }
+                                            return null;
+                                          },
+                                          onSaved: (val) {
+                                            nationality = val;
+                                          },
+                                          decoration: InputDecoration(
+                                            hintText: "india",
+                                            hintStyle: _hinttext,
+                                            border: OutlineInputBorder(),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
 
-                            SizedBox(height: 10),
-                            ElevatedButton(
-                              child: Text("Save"),
-                              onPressed: () {
-                                validateAndSave();
-                              },
-                            ),
-                            SizedBox(height: 15),
-                          ],
+                              SizedBox(height: 10),
+                              ElevatedButton(
+                                child: Text("Save"),
+                                onPressed: () {
+                                  validateAndSave();
+                                },
+                              ),
+                              SizedBox(height: 15),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],
